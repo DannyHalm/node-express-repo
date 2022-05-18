@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var mongojs = require("mongojs");
 var db = mongojs(
-  "mongodb+srv://Abood:Abood1meniat23@todoapp.jfuha.mongodb.net/TodoApp?retryWrites=true&w=majority",["TodoApp"]
+  "mongodb+srv://newTempUser:newTempUser@todoapp.jfuha.mongodb.net/TodoApp?retryWrites=true&w=majority",["TodoApp"]
 );
 
 
