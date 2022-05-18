@@ -1,8 +1,8 @@
 var express = require("express");
 var router = express.Router();
-var mongojs = require("mongojs");
-var db = mongojs(
-  "mongodb+srv://newTempUser:newTempUser@todoapp.jfuha.mongodb.net/TodoApp?retryWrites=true&w=majority",["TodoApp"]
+var mongojs = require("mongojs"); 
+require("dotenv").config(); 
+var db = mongojs(process.env.DB_CONN,["TodoApp"]
 );
 
 
@@ -85,6 +85,10 @@ router.delete("/todo:id", function (req, res, next) {
     })
   });
 
+//If none of the requested routes matches add a generic route for SPA applications:
+router.get("*", (req,res)=>{
+	return res.sendFile(path.join(__dirname,"public/index.html"));
+}); 
 
 
 
